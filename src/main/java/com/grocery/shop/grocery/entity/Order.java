@@ -2,12 +2,16 @@ package com.grocery.shop.grocery.entity;
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -54,8 +58,8 @@ public class Order {
     private Date orderDate;
     
     //@OneToMany(mappedBy = "order")
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy="order", orphanRemoval = true)
-    //private Set<OrderDetail> odSet = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="order", orphanRemoval = true)
+    private Set<OrderDetail> odSet = new HashSet<>();
 
     
     
